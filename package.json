@@ -4,15 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "turbo run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "turbo": "2.0.4",
     "typescript": "5.5.2"
   },
   "workspaces": [
     "api",
     "web"
-  ]
+  ],
+  "packageManager": "npm@10.8.1"
 }
