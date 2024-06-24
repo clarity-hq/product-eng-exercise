@@ -1,0 +1,386 @@
+[
+  {
+    "name": "Improve Data Ingestion Speed",
+    "description": "Customers report slow ingestion times when uploading large datasets.",
+    "importance": "High",
+    "type": "Research",
+    "customer": "Loom",
+    "date": "2024-05-15T08:45:00Z"
+  },
+  {
+    "name": "Add Support for CSV Files",
+    "description": "Clarity needs to support CSV file formats for easier data uploads.",
+    "importance": "Medium",
+    "type": "Sales",
+    "customer": "Ramp",
+    "date": "2024-05-20T10:15:00Z"
+  },
+  {
+    "name": "Bug: Incorrect Data Mapping",
+    "description": "Data mapping errors occur with specific customer datasets.",
+    "importance": "Low",
+    "type": "Customer",
+    "customer": "Brex",
+    "date": "2024-05-23T14:30:00Z"
+  },
+  {
+    "name": "Enhance Dashboard UI",
+    "description": "Users find the dashboard cluttered and difficult to navigate.",
+    "importance": "High",
+    "type": "Customer",
+    "customer": "Vanta",
+    "date": "2024-05-25T09:50:00Z"
+  },
+  {
+    "name": "Implement Real-Time Analytics",
+    "description": "Real-time data processing for immediate insights.",
+    "importance": "Medium",
+    "type": "Research",
+    "customer": "Notion",
+    "date": "2024-05-27T13:45:00Z"
+  },
+  {
+    "name": "Bug: Login Issues",
+    "description": "Users experience login failures intermittently.",
+    "importance": "High",
+    "type": "Customer",
+    "customer": "Linear",
+    "date": "2024-05-30T16:20:00Z"
+  },
+  {
+    "name": "Add Data Visualization Options",
+    "description": "More visualization options needed for better insights representation.",
+    "importance": "Medium",
+    "type": "Sales",
+    "customer": "OpenAI",
+    "date": "2024-06-01T11:35:00Z"
+  },
+  {
+    "name": "Bug: Incorrect Time Zone Display",
+    "description": "Data timestamps are shown in the wrong time zones.",
+    "importance": "Low",
+    "type": "Customer",
+    "customer": "Loom",
+    "date": "2024-06-03T14:10:00Z"
+  },
+  {
+    "name": "Add Multilingual Support",
+    "description": "Support for multiple languages to cater to a global audience.",
+    "importance": "High",
+    "type": "Research",
+    "customer": "Ramp",
+    "date": "2024-06-05T08:25:00Z"
+  },
+  {
+    "name": "Bug: Data Sync Issues",
+    "description": "Synchronization problems with third-party integrations.",
+    "importance": "Medium",
+    "type": "Customer",
+    "customer": "Brex",
+    "date": "2024-06-07T17:55:00Z"
+  },
+  {
+    "name": "Integrate with Slack",
+    "description": "Slack integration for notifications and updates.",
+    "importance": "High",
+    "type": "Sales",
+    "customer": "Vanta",
+    "date": "2024-06-09T10:05:00Z"
+  },
+  {
+    "name": "Improve Mobile Accessibility",
+    "description": "Enhance mobile version for better usability.",
+    "importance": "Medium",
+    "type": "Customer",
+    "customer": "Notion",
+    "date": "2024-06-11T15:45:00Z"
+  },
+  {
+    "name": "Bug: Export Functionality Fails",
+    "description": "Exporting data to external formats often fails.",
+    "importance": "Low",
+    "type": "Research",
+    "customer": "Linear",
+    "date": "2024-06-13T12:20:00Z"
+  },
+  {
+    "name": "Add Data Anomaly Detection",
+    "description": "Automated detection of anomalies in data sets.",
+    "importance": "High",
+    "type": "Research",
+    "customer": "OpenAI",
+    "date": "2024-06-15T14:40:00Z"
+  },
+  {
+    "name": "Bug: User Profile Saving Error",
+    "description": "Changes to user profiles are not saved correctly.",
+    "importance": "Medium",
+    "type": "Customer",
+    "customer": "Loom",
+    "date": "2024-06-17T09:30:00Z"
+  },
+  {
+    "name": "Add Customizable Alerts",
+    "description": "Users need the ability to set custom alerts for specific events.",
+    "importance": "Low",
+    "type": "Sales",
+    "customer": "Ramp",
+    "date": "2024-06-19T13:00:00Z"
+  },
+  {
+    "name": "Enhance Data Security",
+    "description": "Stronger security measures for data protection.",
+    "importance": "High",
+    "type": "Research",
+    "customer": "Brex",
+    "date": "2024-06-21T16:15:00Z"
+  },
+  {
+    "name": "Bug: Chart Display Issues",
+    "description": "Charts not displaying correctly on certain devices.",
+    "importance": "Medium",
+    "type": "Customer",
+    "customer": "Vanta",
+    "date": "2024-06-23T12:10:00Z"
+  },
+  {
+    "name": "Add Automated Reporting",
+    "description": "Automated report generation for periodic insights.",
+    "importance": "Low",
+    "type": "Sales",
+    "customer": "Notion",
+    "date": "2024-06-25T11:50:00Z"
+  },
+  {
+    "name": "Bug: Notification Delays",
+    "description": "Notifications are delayed, causing user frustration.",
+    "importance": "High",
+    "type": "Customer",
+    "customer": "Linear",
+    "date": "2024-06-27T14:20:00Z"
+  },
+  {
+    "name": "Improve API Documentation",
+    "description": "API documentation needs more examples and better structure.",
+    "importance": "Medium",
+    "type": "Sales",
+    "customer": "OpenAI",
+    "date": "2024-06-29T10:30:00Z"
+  },
+  {
+    "name": "Bug: Data Import Errors",
+    "description": "Errors when importing certain types of data.",
+    "importance": "Low",
+    "type": "Customer",
+    "customer": "Loom",
+    "date": "2024-06-30T15:40:00Z"
+  },
+  {
+    "name": "Add Predictive Analysis",
+    "description": "Predictive analysis for future trends based on current data.",
+    "importance": "High",
+    "type": "Research",
+    "customer": "Ramp",
+    "date": "2024-07-01T08:15:00Z"
+  },
+  {
+    "name": "Bug: User Permission Issues",
+    "description": "Users experiencing problems with assigned permissions.",
+    "importance": "Medium",
+    "type": "Customer",
+    "customer": "Brex",
+    "date": "2024-07-03T11:05:00Z"
+  },
+  {
+    "name": "Add Multi-Tenant Support",
+    "description": "Support for multi-tenant architecture for large organizations.",
+    "importance": "Low",
+    "type": "Sales",
+    "customer": "Vanta",
+    "date": "2024-07-05T13:20:00Z"
+  },
+  {
+    "name": "Bug: Report Generation Crashes",
+    "description": "Application crashes when generating reports.",
+    "importance": "High",
+    "type": "Customer",
+    "customer": "Notion",
+    "date": "2024-07-07T14:50:00Z"
+  },
+  {
+    "name": "Improve Data Filtering",
+    "description": "Advanced filtering options for better data management.",
+    "importance": "Medium",
+    "type": "Sales",
+    "customer": "Linear",
+    "date": "2024-07-09T09:40:00Z"
+  },
+  {
+    "name": "Add Audit Trail",
+    "description": "Audit trail for tracking changes and data access.",
+    "importance": "Low",
+    "type": "Research",
+    "customer": "OpenAI",
+    "date": "2024-07-11T15:30:00Z"
+  },
+  {
+    "name": "Bug: Data Export Formatting",
+    "description": "Exported data format is incorrect for certain files.",
+    "importance": "High",
+    "type": "Customer",
+    "customer": "Loom",
+    "date": "2024-07-13T10:55:00Z"
+  },
+  {
+    "name": "Add Single Sign-On",
+    "description": "Single sign-on support for enterprise users.",
+    "importance": "Medium",
+    "type": "Sales",
+    "customer": "Ramp",
+    "date": "2024-07-15T12:45:00Z"
+  },
+  {
+    "name": "Bug: Missing Data Points",
+    "description": "Some data points are missing in the analysis reports.",
+    "importance": "Low",
+    "type": "Customer",
+    "customer": "Brex",
+    "date": "2024-07-17T08:35:00Z"
+  },
+  {
+    "name": "Improve User Training Materials",
+    "description": "Better training materials and tutorials for new users.",
+    "importance": "High",
+    "type": "Sales",
+    "customer": "Vanta",
+    "date": "2024-07-19T13:15:00Z"
+  },
+  {
+    "name": "Bug: Incorrect Calculations",
+    "description": "Some calculations in the reports are incorrect.",
+    "importance": "Medium",
+    "type": "Customer",
+    "customer": "Notion",
+    "date": "2024-07-21T09:50:00Z"
+  },
+  {
+    "name": "Add Custom Fields",
+    "description": "Ability for users to add custom fields to their data.",
+    "importance": "Low",
+    "type": "Research",
+    "customer": "Linear",
+    "date": "2024-07-23T11:20:00Z"
+  },
+  {
+    "name": "Bug: Session Timeout",
+    "description": "Sessions are timing out too quickly, causing interruptions.",
+    "importance": "High",
+    "type": "Customer",
+    "customer": "OpenAI",
+    "date": "2024-07-25T14:05:00Z"
+  },
+  {
+    "name": "Add Advanced Search",
+    "description": "Advanced search capabilities for more precise data queries.",
+    "importance": "Medium",
+    "type": "Sales",
+    "customer": "Loom",
+    "date": "2024-07-27T16:25:00Z"
+  },
+  {
+    "name": "Bug: Data Corruption",
+    "description": "Some datasets are being corrupted during processing.",
+    "importance": "Low",
+    "type": "Customer",
+    "customer": "Ramp",
+    "date": "2024-07-29T10:45:00Z"
+  },
+  {
+    "name": "Improve Data Import Speed",
+    "description": "Faster data import times for large datasets.",
+    "importance": "High",
+    "type": "Research",
+    "customer": "Brex",
+    "date": "2024-07-31T12:15:00Z"
+  },
+  {
+    "name": "Bug: Dashboard Freezing",
+    "description": "The dashboard freezes under heavy data loads.",
+    "importance": "Medium",
+    "type": "Customer",
+    "customer": "Vanta",
+    "date": "2024-08-02T14:30:00Z"
+  },
+  {
+    "name": "Add Role-Based Access Control",
+    "description": "Different access levels for different user roles.",
+    "importance": "Low",
+    "type": "Sales",
+    "customer": "Notion",
+    "date": "2024-08-04T11:50:00Z"
+  },
+  {
+    "name": "Bug: Data Merge Conflicts",
+    "description": "Conflicts occur when merging datasets from different sources.",
+    "importance": "High",
+    "type": "Customer",
+    "customer": "Linear",
+    "date": "2024-08-06T09:15:00Z"
+  },
+  {
+    "name": "Add Multi-Channel Support",
+    "description": "Support for data from multiple communication channels.",
+    "importance": "Medium",
+    "type": "Sales",
+    "customer": "OpenAI",
+    "date": "2024-08-08T13:35:00Z"
+  },
+  {
+    "name": "Bug: Data Duplication",
+    "description": "Duplicate data entries appearing in the system.",
+    "importance": "Low",
+    "type": "Customer",
+    "customer": "Loom",
+    "date": "2024-08-10T15:10:00Z"
+  },
+  {
+    "name": "Improve User Feedback Loop",
+    "description": "Better mechanisms for collecting and acting on user feedback.",
+    "importance": "High",
+    "type": "Research",
+    "customer": "Ramp",
+    "date": "2024-08-12T11:45:00Z"
+  },
+  {
+    "name": "Bug: Data Import Validation",
+    "description": "Data validation errors during import process.",
+    "importance": "Medium",
+    "type": "Customer",
+    "customer": "Brex",
+    "date": "2024-08-14T10:55:00Z"
+  },
+  {
+    "name": "Add AI-Powered Insights",
+    "description": "AI-generated insights from customer interaction data.",
+    "importance": "Low",
+    "type": "Sales",
+    "customer": "Vanta",
+    "date": "2024-08-16T14:20:00Z"
+  },
+  {
+    "name": "Bug: UI Glitches",
+    "description": "Minor UI glitches affecting user experience.",
+    "importance": "High",
+    "type": "Customer",
+    "customer": "Notion",
+    "date": "2024-08-18T09:40:00Z"
+  },
+  {
+    "name": "Improve Onboarding Process",
+    "description": "Smoother onboarding process for new users.",
+    "importance": "Medium",
+    "type": "Sales",
+    "customer": "Linear",
+    "date": "2024-08-20T13:10:00Z"
+  }
+]
