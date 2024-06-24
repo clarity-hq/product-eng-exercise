@@ -10,7 +10,7 @@ This is helpful to view all of our data at once, but falls short when we want a 
 The goal of this exercise is to build a filter menu similar to Linear's:
 ![linear preview video](/linear_preview.gif)
 
-We'll leave it up to you to decide what filters make sense here.
+We'll leave it up to you to decide what filters make sense here. We think that Linear did a pretty great job at designing the filtering system - try to imitate their UI and UX patterns as much as possible.
 
 # Setup
 
