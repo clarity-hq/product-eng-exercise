@@ -12,6 +12,7 @@ type Feedback = {
 };
 
 type FeedbackData = Feedback[];
+type FeedbackFilter = Partial<Feedback>;
 
 export const router = express.Router();
 router.use(bodyParser.json());
@@ -20,11 +21,33 @@ router.post("/query", queryHandler);
 
 function queryHandler(req: Request, res: Response<{ data: FeedbackData }>) {
   const data: FeedbackData = json as any;
-  const body = req;
+  const query: FeedbackFilter = req.body.query;
 
-  /**
-   * TODO: Implement query handling
-   */
+  const filteredData = filterData(data, query);
 
-  res.status(200).json({ data });
+  res.status(200).json({ data: filteredData });
+}
+
+function filterData(data: FeedbackData, filter: FeedbackFilter): FeedbackData {
+  return data.filter((feedback) =>
+    Object.keys(filter).every((key) => {
+      const attributeKey = key as keyof Feedback;
+      const feedbackAttribute = feedback[attributeKey];
+      const filterItem = filter[attributeKey];
+
+      if (filterItem === undefined) {
+        return true;
+      }
+
+      // partial matches
+      if (attributeKey === "name" || attributeKey === "description") {
+        return feedbackAttribute
+          .toLowerCase()
+          .includes(filterItem.toLocaleLowerCase());
+      }
+
+      // full match
+      return feedbackAttribute === filterItem;
+    })
+  );
 }

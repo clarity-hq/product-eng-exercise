@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 type Feedback = {
   name: string;
@@ -9,9 +10,10 @@ type Feedback = {
   date: string;
 };
 
+export type FeedbackFilter = Partial<Feedback>;
 export type FeedbackData = Feedback[];
 
-export function useFeedbackQuery(query: unknown) {
+export function useFeedbackQuery(query: FeedbackFilter) {
   return useQuery<{ data: FeedbackData }>({
     queryFn: async () => {
       const res = await fetch("http://localhost:5001/query", {
@@ -28,4 +30,14 @@ export function useFeedbackQuery(query: unknown) {
     // the parameters of the query.
     queryKey: ["data"],
   });
+}
+
+export function useFeedbackFilter() {
+  const [filter, setFilter] = useState<FeedbackFilter>({
+    name: "Improve",
+    customer: "Ramp",
+  });
+  return {
+    filter,
+  };
 }
