@@ -27,18 +27,18 @@ export function FilterPopover({
 }: FilterPopoverProps) {
   const [drilldownKey, setDrilldownKey] = useState<DrilldownKeyType>(null);
 
-  function onOpenChange(val: boolean) {
-    setOpen(val);
-  }
-
   return (
-    <Popover open={open} onOpenChange={onOpenChange}>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button variant="ghost" className="p-1 gap-2 h-8 overflow-hidden">
           <ListFilter size="16px" /> <p>Filter</p>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[204px] p-0 origin-top-left" align="start">
+      <PopoverContent
+        className="w-[204px] p-0 origin-top-left"
+        align="start"
+        onAnimationEndCapture={() => setDrilldownKey(null)}
+      >
         <Command>
           {drilldownKey ? (
             <FilterDrilldown
