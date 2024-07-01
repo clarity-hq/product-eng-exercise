@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import { Dialog } from '@/components/ui/dialog';
 import { Feedback, useKeyTrigger } from '../lib/hooks';
-import { FilterPopover } from './FilterPopover';
 import { FilterDialog } from './FilterDialog';
+import { FilterPopover } from './FilterPopover';
 
 type FeedbackFilterProps = {
   addFilter: (
@@ -13,11 +13,15 @@ type FeedbackFilterProps = {
 };
 
 export type DrilldownKeyType = keyof Feedback | null;
+export type DialogContextType = {
+  key: keyof Feedback;
+  type: 'text' | 'date';
+} | null;
 
 export function FeedbackFilter({ addFilter }: FeedbackFilterProps) {
   const [open, setOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [dialogContext, setDialogContext] = useState<DrilldownKeyType>(null);
+  const [dialogContext, setDialogContext] = useState<DialogContextType>(null);
 
   useKeyTrigger({
     key: 'f',
@@ -42,10 +46,11 @@ export function FeedbackFilter({ addFilter }: FeedbackFilterProps) {
               return;
             }
 
-            addFilter(dialogContext, value);
+            addFilter(dialogContext.key, value);
             setDialogOpen(false);
             setDialogContext(null);
           }}
+          context={dialogContext}
         />
       </Dialog>
     </>

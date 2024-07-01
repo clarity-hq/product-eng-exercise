@@ -8,7 +8,7 @@ import { Feedback } from '@/lib/hooks';
 import { filterConfig } from '@/lib/utils';
 import { ListFilter } from 'lucide-react';
 import { useState } from 'react';
-import { DrilldownKeyType } from './FeedbackFilter';
+import { DialogContextType, DrilldownKeyType } from './FeedbackFilter';
 import { FilterDrilldown } from './FilterDrilldown';
 import { FilterSelect } from './FilterSelect';
 import { Button } from './ui/button';
@@ -21,7 +21,7 @@ type FilterPopoverProps = {
     value: Feedback[keyof Feedback]
   ) => void;
   openDialog: () => void;
-  setDialogContext: (val: DrilldownKeyType) => void;
+  setDialogContext: (val: DialogContextType) => void;
 };
 
 export function FilterPopover({

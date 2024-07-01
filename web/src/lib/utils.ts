@@ -25,7 +25,7 @@ type FeedbackDisplay = {
   icon: ForwardRefExoticComponent<
     Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>
   >;
-  triggerDialog?: boolean;
+  triggerDialog?: 'text' | 'date';
   subfilters?: string[];
   relations: RelationPair;
 };
@@ -35,7 +35,7 @@ export const filterConfig: FilterConfig = {
   name: {
     display: 'Name',
     icon: Type,
-    triggerDialog: true,
+    triggerDialog: 'text',
     relations: {
       includes: 'contains',
       excludes: 'does not contain',
@@ -44,7 +44,7 @@ export const filterConfig: FilterConfig = {
   description: {
     display: 'Description',
     icon: Text,
-    triggerDialog: true,
+    triggerDialog: 'text',
     relations: {
       includes: 'contains',
       excludes: 'does not contain',
@@ -80,6 +80,7 @@ export const filterConfig: FilterConfig = {
   date: {
     display: 'Date',
     icon: CalendarSearch,
+    triggerDialog: 'date',
     relations: {
       includes: 'on',
       excludes: 'not on',

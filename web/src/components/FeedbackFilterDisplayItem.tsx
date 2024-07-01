@@ -1,4 +1,5 @@
 import { Separator } from '@/components/ui/separator';
+import { Feedback } from '@/lib/hooks';
 import { ActiveFilter } from '@/lib/useFeedbackFilter';
 import { X } from 'lucide-react';
 import { useState } from 'react';
@@ -39,7 +40,7 @@ export function FeedbackFilterDisplayItem({
       />
       <Separator orientation="vertical" />
       <Button variant="ghost" className="rounded-none text-xs p-2">
-        {value}
+        {formatValue(value, attribute)}
       </Button>
       <Button
         variant="ghost"
@@ -50,4 +51,26 @@ export function FeedbackFilterDisplayItem({
       </Button>
     </div>
   );
+}
+
+function formatValue(value: string, type: keyof Feedback) {
+  if (type === 'date') {
+    try {
+      const date = new Date(value);
+      if (isNaN(date.getTime())) {
+        throw new Error('Invalid date');
+      }
+
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      });
+    } catch (error) {
+      console.error(error);
+      return value;
+    }
+  }
+
+  return value;
 }

@@ -7,13 +7,13 @@ import {
 } from '@/components/ui/command';
 import { Feedback } from '@/lib/hooks';
 import { filterConfig } from '@/lib/utils';
-import { DrilldownKeyType } from './FeedbackFilter';
+import { DialogContextType, DrilldownKeyType } from './FeedbackFilter';
 
 type FilterSelectProps = {
   setDrilldownKey: (val: DrilldownKeyType) => void;
   openDialog: () => void;
   setOpen: (val: boolean) => void;
-  setDialogContext: (val: DrilldownKeyType) => void;
+  setDialogContext: (val: DialogContextType) => void;
 };
 
 export function FilterSelect({
@@ -39,7 +39,10 @@ export function FilterSelect({
                   const cleanedFilter =
                     selectedFilter.toLowerCase() as keyof Feedback;
                   if (display.triggerDialog) {
-                    setDialogContext(cleanedFilter as keyof Feedback);
+                    setDialogContext({
+                      key: cleanedFilter as keyof Feedback,
+                      type: display.triggerDialog,
+                    });
                     openDialog();
                     setOpen(false);
                   } else if (display.subfilters) {
