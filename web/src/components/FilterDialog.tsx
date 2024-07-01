@@ -28,6 +28,7 @@ export function FilterDialog({ onSubmit, close, context }: FilterDialogProps) {
               onClick={() => {
                 onSubmit(input);
               }}
+              disabled={!input}
             >
               Apply
             </Button>
@@ -55,6 +56,7 @@ export function FilterDialog({ onSubmit, close, context }: FilterDialogProps) {
                   onSubmit(date?.toISOString());
                 }
               }}
+              disabled={!date}
             >
               Apply
             </Button>
