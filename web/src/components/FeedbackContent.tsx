@@ -1,3 +1,4 @@
+import { useFeedbackFilterContext } from '@/lib/FeedbackFilterContext';
 import { FeedbackData } from '@/lib/hooks';
 import { FeedbackDataTable } from './FeedbackDataTable';
 import { Button } from './ui/button';
@@ -5,14 +6,11 @@ import { Button } from './ui/button';
 type FeedbackContentProps = {
   isLoading: boolean;
   data: FeedbackData | undefined;
-  clearFilters: () => void;
 };
 
-export function FeedbackContent({
-  isLoading,
-  data,
-  clearFilters,
-}: FeedbackContentProps) {
+export function FeedbackContent({ isLoading, data }: FeedbackContentProps) {
+  const { clearFilters } = useFeedbackFilterContext();
+
   if (isLoading) {
     return (
       <div className="flex flex-col w-full items-center gap-4 p-10 border">

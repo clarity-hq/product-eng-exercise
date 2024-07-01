@@ -1,30 +1,12 @@
-import { ActiveFilter } from '@/lib/useFeedbackFilter';
+import { useFeedbackFilterContext } from '@/lib/FeedbackFilterContext';
 import { FeedbackFilterDisplayItem } from './FeedbackFilterDisplayItem';
 
-type FeedbackFilterDisplayProps = {
-  filters: ActiveFilter[];
-  updateFilter: (
-    id: string,
-    newValues: Partial<Pick<ActiveFilter, 'value' | 'relation'>>
-  ) => void;
-  removeFilter: (id: string) => void;
-};
-
-// TODO: handle dismissing filters
-export function FeedbackFilterDisplay({
-  filters,
-  updateFilter,
-  removeFilter,
-}: FeedbackFilterDisplayProps) {
+export function FeedbackFilterDisplay() {
+  const { activeFilters } = useFeedbackFilterContext();
   return (
     <div className="flex row gap-2">
-      {filters.map((activeFilter, index) => (
-        <FeedbackFilterDisplayItem
-          key={index}
-          activeFilter={activeFilter}
-          updateFilter={updateFilter}
-          removeFilter={removeFilter}
-        />
+      {activeFilters.map((activeFilter, index) => (
+        <FeedbackFilterDisplayItem activeFilter={activeFilter} key={index} />
       ))}
     </div>
   );

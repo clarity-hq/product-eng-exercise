@@ -11,7 +11,7 @@ export type AddFilterType = (
   value: Feedback[keyof Feedback]
 ) => string;
 
-type UseFeedbackFilterReturn = {
+export type UseFeedbackFilterReturn = {
   filter: FeedbackFilter;
   activeFilters: ActiveFilter[];
   addFilter: AddFilterType;

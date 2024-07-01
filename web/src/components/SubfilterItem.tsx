@@ -1,26 +1,24 @@
 import { Checkbox } from '@/components/ui/checkbox';
+import { CommandItem } from '@/components/ui/command';
+import { useFeedbackFilterContext } from '@/lib/FeedbackFilterContext';
 import { Feedback } from '@/lib/hooks';
-import { AddFilterType, RemoveFilterType } from '@/lib/useFeedbackFilter';
 import { CheckedState } from '@radix-ui/react-checkbox';
-import { CommandItem } from 'cmdk';
 import { useState } from 'react';
 
 type SubfilterItemProps = {
-  addFilter: AddFilterType;
   drilldownKey: keyof Feedback;
   setOpen: (val: boolean) => void;
-  removeFilter: RemoveFilterType;
   onCheckedChange: (checked: CheckedState) => void;
   subfilter: string;
 };
 
 export function SubfilterItem({
-  addFilter,
   setOpen,
   drilldownKey,
   onCheckedChange,
   subfilter,
 }: SubfilterItemProps) {
+  const { addFilter } = useFeedbackFilterContext();
   const [isChecked, setIsChecked] = useState(false);
   return (
     <CommandItem
@@ -33,8 +31,8 @@ export function SubfilterItem({
     >
       <div className="items-top flex space-x-2">
         <Checkbox
-          className={`transition-all duration-75 ease-in-out transform scale-60 opacity-0 group-hover:scale-100 group-hover:opacity-100 ${
-            isChecked ? 'opacity-100 scale-100' : 'opacity-0 scale-60'
+          className={`${
+            isChecked ? 'opacity-100' : 'opacity-0'
           } group-hover:opacity-100`}
           id={drilldownKey}
           onClick={(e) => e.stopPropagation()}

@@ -1,15 +1,10 @@
 import { useState } from 'react';
 
 import { Dialog } from '@/components/ui/dialog';
-import { AddFilterType, RemoveFilterType } from '@/lib/useFeedbackFilter';
+import { useFeedbackFilterContext } from '@/lib/FeedbackFilterContext';
 import { Feedback, useKeyTrigger } from '../lib/hooks';
 import { FilterDialog } from './FilterDialog';
 import { FilterPopover } from './FilterPopover';
-
-type FeedbackFilterProps = {
-  addFilter: AddFilterType;
-  removeFilter: RemoveFilterType;
-};
 
 export type DrilldownKeyType = keyof Feedback | null;
 export type DialogContextType = {
@@ -17,10 +12,8 @@ export type DialogContextType = {
   type: 'text' | 'date';
 } | null;
 
-export function FeedbackFilter({
-  addFilter,
-  removeFilter,
-}: FeedbackFilterProps) {
+export function FeedbackFilter() {
+  const { addFilter } = useFeedbackFilterContext();
   const [open, setOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [dialogContext, setDialogContext] = useState<DialogContextType>(null);
@@ -37,8 +30,6 @@ export function FeedbackFilter({
         <FilterPopover
           open={open}
           setOpen={setOpen}
-          addFilter={addFilter}
-          removeFilter={removeFilter}
           setDialogContext={setDialogContext}
           openDialog={() => setDialogOpen(true)}
         />

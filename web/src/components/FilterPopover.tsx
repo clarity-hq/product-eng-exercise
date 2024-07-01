@@ -4,7 +4,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { AddFilterType, RemoveFilterType } from '@/lib/useFeedbackFilter';
 import { filterConfig } from '@/lib/utils';
 import { ListFilter } from 'lucide-react';
 import { useState } from 'react';
@@ -16,8 +15,6 @@ import { Button } from './ui/button';
 type FilterPopoverProps = {
   open: boolean;
   setOpen: (val: boolean) => void;
-  addFilter: AddFilterType;
-  removeFilter: RemoveFilterType;
   openDialog: () => void;
   setDialogContext: (val: DialogContextType) => void;
 };
@@ -25,8 +22,6 @@ type FilterPopoverProps = {
 export function FilterPopover({
   open,
   setOpen,
-  addFilter,
-  removeFilter,
   setDialogContext,
   openDialog,
 }: FilterPopoverProps) {
@@ -34,7 +29,6 @@ export function FilterPopover({
 
   function onOpenChange(val: boolean) {
     setOpen(val);
-    setDrilldownKey(null);
   }
 
   return (
@@ -49,8 +43,6 @@ export function FilterPopover({
           {drilldownKey ? (
             <FilterDrilldown
               placeholder={filterConfig[drilldownKey].display}
-              addFilter={addFilter}
-              removeFilter={removeFilter}
               setOpen={setOpen}
               drilldownKey={drilldownKey}
             />

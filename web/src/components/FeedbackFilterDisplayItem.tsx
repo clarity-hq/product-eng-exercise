@@ -1,4 +1,5 @@
 import { Separator } from '@/components/ui/separator';
+import { useFeedbackFilterContext } from '@/lib/FeedbackFilterContext';
 import { Feedback } from '@/lib/hooks';
 import { ActiveFilter } from '@/lib/useFeedbackFilter';
 import { X } from 'lucide-react';
@@ -9,19 +10,13 @@ import { Button } from './ui/button';
 
 type FeedbackFilterDisplayItemProps = {
   activeFilter: ActiveFilter;
-  updateFilter: (
-    id: string,
-    newValues: Partial<Pick<ActiveFilter, 'value' | 'relation'>>
-  ) => void;
-  removeFilter: (id: string) => void;
 };
 
 export function FeedbackFilterDisplayItem({
   activeFilter,
-  updateFilter,
-  removeFilter,
 }: FeedbackFilterDisplayItemProps) {
   const [open, setOpen] = useState(false);
+  const { updateFilter, removeFilter } = useFeedbackFilterContext();
   const { attribute, value, id } = activeFilter;
   return (
     <div

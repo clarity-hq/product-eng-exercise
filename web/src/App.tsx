@@ -1,17 +1,10 @@
 import { FeedbackContent } from './components/FeedbackContent';
 import { FeedbackFiltersSection } from './components/FeedbackFiltersSection';
+import { useFeedbackFilterContext } from './lib/FeedbackFilterContext';
 import { useFeedbackQuery } from './lib/hooks';
-import { useFeedbackFilter } from './lib/useFeedbackFilter';
 
 function App() {
-  const {
-    filter,
-    activeFilters,
-    updateFilter,
-    removeFilter,
-    addFilter,
-    clearFilters,
-  } = useFeedbackFilter();
+  const { filter } = useFeedbackFilterContext();
   const dataReq = useFeedbackQuery(filter);
 
   return (
@@ -20,14 +13,8 @@ function App() {
         <h1 className="scroll-m-20 text-4xl tracking-wide lg:text-5xl">
           Feedback
         </h1>
-        <FeedbackFiltersSection
-          removeFilter={removeFilter}
-          addFilter={addFilter}
-          updateFilter={updateFilter}
-          activeFilters={activeFilters}
-        />
+        <FeedbackFiltersSection />
         <FeedbackContent
-          clearFilters={clearFilters}
           isLoading={dataReq.isLoading}
           data={dataReq.data?.data}
         />

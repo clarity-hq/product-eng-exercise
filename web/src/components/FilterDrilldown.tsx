@@ -4,27 +4,24 @@ import {
   CommandInput,
   CommandList,
 } from '@/components/ui/command';
+import { useFeedbackFilterContext } from '@/lib/FeedbackFilterContext';
 import { Feedback } from '@/lib/hooks';
-import { AddFilterType, RemoveFilterType } from '@/lib/useFeedbackFilter';
 import { filterConfig } from '@/lib/utils';
 import { useState } from 'react';
 import { SubfilterItem } from './SubfilterItem';
 
 type FilterDrilldownProps = {
   placeholder: string;
-  addFilter: AddFilterType;
   drilldownKey: keyof Feedback;
   setOpen: (val: boolean) => void;
-  removeFilter: RemoveFilterType;
 };
 
 export function FilterDrilldown({
   placeholder,
-  addFilter,
-  removeFilter,
   drilldownKey,
   setOpen,
 }: FilterDrilldownProps) {
+  const { addFilter, removeFilter } = useFeedbackFilterContext();
   const [currentFilterId, setCurrentFilterId] = useState<string | null>(null);
   return (
     <>
@@ -50,10 +47,8 @@ export function FilterDrilldown({
                   }
                 }
               }}
-              addFilter={addFilter}
               drilldownKey={drilldownKey}
               setOpen={setOpen}
-              removeFilter={removeFilter}
               subfilter={subfilter}
             />
           ))}
