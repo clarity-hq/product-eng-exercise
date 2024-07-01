@@ -7,9 +7,9 @@ import {
   getCoreRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table";
-import cx from "classnames";
-import { useState } from "react";
+} from '@tanstack/react-table';
+import cx from 'classnames';
+import { useEffect, useState } from 'react';
 
 type Props<RowType> = {
   className?: string;
@@ -35,6 +35,10 @@ export function DataTable<RowType>({
   const [rowData, _setData] = useState(() => [...data]);
   const [sorting, setSorting] = useState<SortingState>(initialSortState || []);
 
+  useEffect(() => {
+    _setData(data);
+  }, [data]);
+
   const columnHelper = createColumnHelper<RowType>();
 
   const columns = schema.map((columnSchema) =>
@@ -43,7 +47,7 @@ export function DataTable<RowType>({
       cell: (info) => info.renderValue(),
       sortingFn: columnSchema.sortingFunction,
       enableSorting: !!columnSchema.sortingFunction,
-      sortUndefined: "last",
+      sortUndefined: 'last',
     })
   );
 
@@ -60,7 +64,7 @@ export function DataTable<RowType>({
 
   return (
     <div className="hide-scroll-bar h-full overflow-hidden overflow-y-auto rounded-lg border bg-white">
-      <table className={cx({ "w-full": fullWidth }, className, " bg-white")}>
+      <table className={cx({ 'w-full': fullWidth }, className, ' bg-white')}>
         <thead className="border-b">
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
@@ -72,11 +76,11 @@ export function DataTable<RowType>({
                   onClick={header.column.getToggleSortingHandler()}
                   title={
                     header.column.getCanSort()
-                      ? header.column.getNextSortingOrder() === "asc"
-                        ? "Sort ascending"
-                        : header.column.getNextSortingOrder() === "desc"
-                        ? "Sort descending"
-                        : "Clear sort"
+                      ? header.column.getNextSortingOrder() === 'asc'
+                        ? 'Sort ascending'
+                        : header.column.getNextSortingOrder() === 'desc'
+                        ? 'Sort descending'
+                        : 'Clear sort'
                       : undefined
                   }
                 >
@@ -93,7 +97,7 @@ export function DataTable<RowType>({
             </tr>
           ))}
         </thead>
-        <tbody style={{ overflow: "auto" }}>
+        <tbody style={{ overflow: 'auto' }}>
           {table.getRowModel().rows.map((row) => (
             <tr
               key={row.id}

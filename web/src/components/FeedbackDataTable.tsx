@@ -1,5 +1,5 @@
-import { DataTable } from "./DataTable";
-import { FeedbackData } from "./hooks";
+import { FeedbackData } from '../lib/hooks';
+import { DataTable } from './ui/DataTable';
 
 export function FeedbackDataTable({ data }: { data: FeedbackData }) {
   return (
@@ -14,7 +14,7 @@ export function FeedbackDataTable({ data }: { data: FeedbackData }) {
               <div className="text-sm">{row.description}</div>
             </div>
           ),
-          headerName: "Name",
+          headerName: 'Name',
         },
         {
           cellRenderer: (row) => (
@@ -22,7 +22,7 @@ export function FeedbackDataTable({ data }: { data: FeedbackData }) {
               <div className="mb-2">{row.importance}</div>
             </div>
           ),
-          headerName: "Importance",
+          headerName: 'Importance',
         },
         {
           cellRenderer: (row) => (
@@ -30,7 +30,7 @@ export function FeedbackDataTable({ data }: { data: FeedbackData }) {
               <div className="mb-2">{row.type}</div>
             </div>
           ),
-          headerName: "Type",
+          headerName: 'Type',
         },
         {
           cellRenderer: (row) => (
@@ -38,7 +38,7 @@ export function FeedbackDataTable({ data }: { data: FeedbackData }) {
               <div className="mb-2">{row.customer}</div>
             </div>
           ),
-          headerName: "Customer",
+          headerName: 'Customer',
         },
         {
           cellRenderer: (row) => (
@@ -48,7 +48,7 @@ export function FeedbackDataTable({ data }: { data: FeedbackData }) {
               </div>
             </div>
           ),
-          headerName: "Date",
+          headerName: 'Date',
         },
       ]}
     />

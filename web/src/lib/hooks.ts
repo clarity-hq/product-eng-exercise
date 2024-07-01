@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-type Feedback = {
+export type Feedback = {
   name: string;
   description: string;
   importance: 'High' | 'Medium' | 'Low';
@@ -10,8 +10,21 @@ type Feedback = {
   date: string;
 };
 
-// TODO: need to handle exclude/include
-export type FeedbackFilter = Partial<Feedback>;
+type AttributeGranularFilter<T> = T[];
+export type AttributeFilter<T> = {
+  include?: AttributeGranularFilter<T>;
+  exclude?: AttributeGranularFilter<T>;
+};
+export type FeedbackFilter = {
+  name?: AttributeFilter<string>;
+  description?: AttributeFilter<string>;
+  importance?: AttributeFilter<'High' | 'Medium' | 'Low'>;
+  type?: AttributeFilter<'Sales' | 'Customer' | 'Research'>;
+  customer?: AttributeFilter<
+    'Loom' | 'Ramp' | 'Brex' | 'Vanta' | 'Notion' | 'Linear' | 'OpenAI'
+  >;
+  date?: AttributeFilter<string>;
+};
 export type FeedbackData = Feedback[];
 
 export function useFeedbackQuery(query: FeedbackFilter) {
@@ -29,29 +42,8 @@ export function useFeedbackQuery(query: FeedbackFilter) {
     },
     // The query key is used to cache responses and should represent
     // the parameters of the query.
-    queryKey: ['data', query],
+    queryKey: ['data', JSON.stringify(query)],
   });
-}
-
-type UseFeedbackFilterReturn = {
-  filter: FeedbackFilter;
-  addFilter: (key: string, value: string) => void;
-};
-
-export function useFeedbackFilter(): UseFeedbackFilterReturn {
-  const [filter, setFilter] = useState<FeedbackFilter>({});
-
-  function addFilter(key: string, value: string) {
-    setFilter((prevFilter) => ({
-      ...prevFilter,
-      [key]: value,
-    }));
-  }
-
-  return {
-    filter,
-    addFilter,
-  };
 }
 
 type UseKeyTriggerProps = {
