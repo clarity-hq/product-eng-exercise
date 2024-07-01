@@ -7,22 +7,26 @@ import {
   CommandList,
 } from '@/components/ui/command';
 import { Feedback } from '@/lib/hooks';
-import { AddFilterType } from '@/lib/useFeedbackFilter';
+import { AddFilterType, RemoveFilterType } from '@/lib/useFeedbackFilter';
 import { filterConfig } from '@/lib/utils';
+import { useState } from 'react';
 
 type FilterDrilldownProps = {
   placeholder: string;
   addFilter: AddFilterType;
   drilldownKey: keyof Feedback;
   setOpen: (val: boolean) => void;
+  removeFilter: RemoveFilterType;
 };
 
 export function FilterDrilldown({
   placeholder,
   addFilter,
+  removeFilter,
   drilldownKey,
   setOpen,
 }: FilterDrilldownProps) {
+  const [currentFilterId, setCurrentFilterId] = useState<string | null>(null);
   return (
     <>
       <CommandInput placeholder={placeholder} autoFocus />
@@ -32,7 +36,6 @@ export function FilterDrilldown({
           {filterConfig[drilldownKey].subfilters?.map((subfilter) => (
             <CommandItem
               onSelect={() => {
-                // TODO: this is hacky
                 addFilter(drilldownKey, subfilter);
                 setOpen(false);
               }}
@@ -44,10 +47,18 @@ export function FilterDrilldown({
                   onClick={(e) => e.stopPropagation()}
                   onCheckedChange={(checked) => {
                     if (checked) {
-                      addFilter(drilldownKey, subfilter);
+                      if (currentFilterId) {
+                        // TODO: in a perfect world, I'll stack filters.
+                        addFilter(drilldownKey, subfilter);
+                      } else {
+                        const newId = addFilter(drilldownKey, subfilter);
+                        setCurrentFilterId(newId);
+                      }
                     } else {
-                      // TODO: remove filter
-                      console.log('remove filter');
+                      if (currentFilterId) {
+                        removeFilter(currentFilterId);
+                        setCurrentFilterId(null);
+                      }
                     }
                   }}
                 />

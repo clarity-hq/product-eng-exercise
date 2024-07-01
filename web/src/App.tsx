@@ -1,18 +1,17 @@
-import { FeedbackDataTable } from './components/FeedbackDataTable';
-import { FeedbackFilter } from './components/FeedbackFilter';
-import { FeedbackFilterDisplay } from './components/FeedbackFilterDisplay';
-import { FeedbackData, useFeedbackQuery } from './lib/hooks';
-import {
-  ActiveFilter,
-  AddFilterType,
-  RemoveFilterType,
-  UpdateFilterType,
-  useFeedbackFilter,
-} from './lib/useFeedbackFilter';
+import { FeedbackContent } from './components/FeedbackContent';
+import { FeedbackFiltersSection } from './components/FeedbackFiltersSection';
+import { useFeedbackQuery } from './lib/hooks';
+import { useFeedbackFilter } from './lib/useFeedbackFilter';
 
 function App() {
-  const { filter, activeFilters, updateFilter, removeFilter, addFilter } =
-    useFeedbackFilter();
+  const {
+    filter,
+    activeFilters,
+    updateFilter,
+    removeFilter,
+    addFilter,
+    clearFilters,
+  } = useFeedbackFilter();
   const dataReq = useFeedbackQuery(filter);
 
   return (
@@ -28,46 +27,11 @@ function App() {
           activeFilters={activeFilters}
         />
         <FeedbackContent
+          clearFilters={clearFilters}
           isLoading={dataReq.isLoading}
           data={dataReq.data?.data}
         />
       </div>
-    </div>
-  );
-}
-
-type FeedbackContentProps = {
-  isLoading: boolean;
-  data: FeedbackData | undefined;
-};
-
-function FeedbackContent({ isLoading, data }: FeedbackContentProps) {
-  return isLoading ? <div>Loading...</div> : <FeedbackDataTable data={data!} />;
-}
-
-type FeedbackFiltersSectionProps = {
-  removeFilter: RemoveFilterType;
-  addFilter: AddFilterType;
-  updateFilter: UpdateFilterType;
-  activeFilters: ActiveFilter[];
-};
-
-function FeedbackFiltersSection({
-  removeFilter,
-  addFilter,
-  updateFilter,
-  activeFilters,
-}: FeedbackFiltersSectionProps) {
-  return (
-    <div className="flex row items-center gap-3">
-      {activeFilters && (
-        <FeedbackFilterDisplay
-          filters={activeFilters}
-          removeFilter={removeFilter}
-          updateFilter={updateFilter}
-        />
-      )}
-      <FeedbackFilter addFilter={addFilter} />
     </div>
   );
 }

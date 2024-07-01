@@ -35,7 +35,6 @@ export function FilterSelect({
                 key={filter}
                 value={filter}
                 onSelect={(selectedFilter) => {
-                  // TODO: this needs tons of cleanup
                   const cleanedFilter =
                     selectedFilter.toLowerCase() as keyof Feedback;
                   if (display.triggerDialog) {

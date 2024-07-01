@@ -9,7 +9,7 @@ export type UpdateFilterType = (
 export type AddFilterType = (
   attribute: keyof Feedback,
   value: Feedback[keyof Feedback]
-) => void;
+) => string;
 
 type UseFeedbackFilterReturn = {
   filter: FeedbackFilter;
@@ -17,6 +17,7 @@ type UseFeedbackFilterReturn = {
   addFilter: AddFilterType;
   removeFilter: RemoveFilterType;
   updateFilter: UpdateFilterType;
+  clearFilters: () => void;
 };
 
 export type Relation = 'includes' | 'excludes';
@@ -34,7 +35,7 @@ export function useFeedbackFilter(): UseFeedbackFilterReturn {
   function addFilter(
     attribute: keyof Feedback,
     value: Feedback[keyof Feedback]
-  ) {
+  ): string {
     const newFilter: ActiveFilter = {
       attribute,
       relation: 'includes',
@@ -43,6 +44,7 @@ export function useFeedbackFilter(): UseFeedbackFilterReturn {
     };
     setActiveFilters([...activeFilters, newFilter]);
     setCurrentId(currentId + 1);
+    return newFilter.id;
   }
 
   function removeFilter(id: string) {
@@ -64,6 +66,11 @@ export function useFeedbackFilter(): UseFeedbackFilterReturn {
       })
     );
   }
+
+  function clearFilters() {
+    setActiveFilters([]);
+  }
+
   const filter = useMemo(() => constructFilter(activeFilters), [activeFilters]);
   return {
     filter,
@@ -71,6 +78,7 @@ export function useFeedbackFilter(): UseFeedbackFilterReturn {
     addFilter,
     removeFilter,
     updateFilter,
+    clearFilters,
   };
 }
 
