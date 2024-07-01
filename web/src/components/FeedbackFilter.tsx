@@ -42,8 +42,8 @@ export function FeedbackFilter() {
 
             addFilter(dialogContext.key, value);
             setDialogOpen(false);
-            setDialogContext(null);
           }}
+          setContext={setDialogContext}
           context={dialogContext}
         />
       </Dialog>

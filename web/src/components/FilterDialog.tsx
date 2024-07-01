@@ -9,13 +9,19 @@ type FilterDialogProps = {
   onSubmit: (value: string) => void;
   close: () => void;
   context: DialogContextType;
+  setContext: (val: DialogContextType | null) => void;
 };
 
-export function FilterDialog({ onSubmit, close, context }: FilterDialogProps) {
+export function FilterDialog({
+  onSubmit,
+  close,
+  context,
+  setContext,
+}: FilterDialogProps) {
   const [date, setDate] = useState<Date>();
   const [input, setInput] = useState('');
   return (
-    <DialogContent>
+    <DialogContent onAnimationEndCapture={() => setContext(null)}>
       {context?.type === 'text' ? (
         <>
           <DialogTitle>Filter by content...</DialogTitle>
