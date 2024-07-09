@@ -1,23 +1,41 @@
-import { FeedbackDataTable } from "./FeedbackDataTable";
-import { useFeedbackQuery } from "./hooks";
+import { useState } from "react";
+import { NavTabs, TabConfig } from "./components/NavTabs";
+import { Feedback } from "./Feedback";
+import { Groups } from "./Groups";
+
+export const TabsConfig: TabConfig = {
+  feedback: {
+    id: "feedback",
+    name: "Feedback",
+  },
+  groups: {
+    id: "groups",
+    name: "Groups",
+  },
+};
 
 function App() {
-  /**
-   * TODO: Add filter options
-   */
-
-  const dataReq = useFeedbackQuery({
-    _: "Update this object to pass data to the /query endpoint.",
-  });
-
-  if (dataReq.isLoading) {
-    return <div>Loading...</div>;
-  }
+  const [selectedTab, setSelectedTab] = useState("feedback");
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
-      <div className="w-5/6 h-4/5">
-        <FeedbackDataTable data={dataReq.data!.data} />
+      <div className="w-5/6 h-4/5 flex flex-col gap-y-4">
+        <NavTabs
+          config={TabsConfig}
+          tabOrder={["feedback", "groups"]}
+          onTabClicked={(tabId) => {
+            setSelectedTab(tabId);
+          }}
+          selectedTab={selectedTab}
+        />
+        {/**
+         * TODO(part-1): Add filter options
+         */}
+        {selectedTab === "feedback" ? (
+          <Feedback filters={{}} />
+        ) : (
+          <Groups filters={{}} />
+        )}
       </div>
     </div>
   );
