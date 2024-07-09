@@ -23,7 +23,7 @@ The goal of this exercise is to group similar pieces of feedback together, like 
 
 We intentionally left this piece very open-ended -- we want to understand how you navigate ambiguity and work toward a solution.
 
-We included a Python server (`/apy`) in case you need to use any Python libraries. If you need API access to any third-party services, let us know and we can get you an API key.
+We included a Python server (`/apy`) in case you need to use any Python libraries. If you need API access to any third-party services (e.g. OpenAI), let us know and we can get you an API key. We're pricing-agnostic here and just care about getting something working.
 
 # Setup
 
